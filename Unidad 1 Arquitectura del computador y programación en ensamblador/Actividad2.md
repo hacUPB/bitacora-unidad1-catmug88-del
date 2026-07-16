@@ -39,12 +39,19 @@ Esta es mi explicación linea por linea:
 
  ``¿Por qué crees que es ese valor?`` Porque después de realizar la operación matemática, llamamos al casillero 16 y con **M=D** guardamos el resultado de la operación dentro de este casillero. Según la explicación del profesor, M es el contenido del casillero que se haya llamado mas recientemente, se puede saber en que casillero se guardó viendo los registros, en específico el registro A, este dicta el número del casillero que esté seleccionado.
 
- ``¿Qué instrucciones se ejecutan en cada ciclo Fetch-Decode-Execute? `` Realmente cada 
+ ``¿Qué instrucciones se ejecutan en cada ciclo Fetch-Decode-Execute? `` Realmente cada instrucción contiene un cciclo fetch decode y execute, pero este ejercicio me parece relevante para entender mejor cómo funciona cada uno, en el ejemplo del programa, yo diría que:
+ -  cada línea @x es fetch, ya que esta buscando una dirección de memoria en la ram.
+ - cada línea de x=x sería execute, ya que es una accion mas definitiva que altera la memoria directamente
+ - la unica que yo considero que califica como decode, seria D=D+A ya que se esta calculando una operacion matematica que requiere el funcionamiento de la ALU y requiere un nivel mas complicado de 
 
  ``¿Qué cambios observas en el contenido de la memoria y los registros?``
 
- ## Conceptos de lenguaje ensamblador
+ ## Conceptos de lenguaje ensamblador: Saltos
 
  ![alt text](image-1.png)
 
  En esta imagen están los diferentes tipos de saltos, los cuales son muy importantes en la programación en lenguaje ensamblador ya que a partir de estos se pueden crear ciclos y condicionales en el programa. 
+
+ para usarlos primero debe escribir una direccion y escribir el jump, este solo hace comparaciones con 0
+
+ # tarea: variables y etiquetas en lenguaje ensamblador
