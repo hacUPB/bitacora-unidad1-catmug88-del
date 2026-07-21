@@ -1,5 +1,11 @@
-# Sesión 2
-## Modelo Hack y ciclo fetch-decode-execute
+# Sesión 2: Modelo Hack y ciclo fetch-decode-execute
+## Objetivo: ¿Qué se buscaba aprender o lograr?
+Las instrucciones básicas del lenguaje ensamblador
+## Proceso: Pasos que seguiste para completar la actividad
+- Escuchar la explicacion del profesor
+- Leer el notion
+- Contestar las preguntas segun lo explicado en clase
+- Investigar conceptos nuevos o vacios conceptuales que hayan quedado
 ```
 		@1
 			D=A
@@ -53,7 +59,7 @@ El propósito principal de este programa es guardar el número 3 en el casillero
 ``A``, cada vez que se llama una dirección con la etiqueta @ se guarda ese numero en el registro
 ``D``, cada vez que se hace una instruccion D=x se guarda un numero nuevo en este registro temporal. Y en cuanto a la memoria, en el casillero 16 podemos ver como al final se guarda el número tres.
 
-
+# Aprendizaje: Conceptos nuevos que adquiriste
  ## Conceptos de lenguaje ensamblador: Saltos
 
  ![alt text](image-1.png)
@@ -62,8 +68,11 @@ El propósito principal de este programa es guardar el número 3 en el casillero
 
  para usarlos primero debe escribir una direccion y escribir el jump, este solo hace comparaciones con 0
 
- # Tarea: variables y etiquetas en lenguaje ensamblador
- ## Investigación
+ ## Números negativos en 3 bits
+  
+ Entendí mejor el funcionamiento del lenguaje ensamblador y como crean números negativos con el compuesto a 2 del no binario usando compuertas lógicas, asi "engañan" al computador para que reste y sume números tanto positivos como negativos.
+
+ ## Investigación: variables y etiquetas en lenguaje ensamblador
 
  En lenguaje ensamblador, las variables son nombres simbólicos para posiciones de memoria que almacenan datos, mientras que las etiquetas representan direcciones de instrucciones a las que el procesador puede saltar. Ambas sustituyen el uso de direcciones numéricas directas para facilitar la escritura y lectura del código.
  
@@ -72,3 +81,7 @@ El propósito principal de este programa es guardar el número 3 en el casillero
 
  ``Etiquetas``
  Una etiqueta es un nombre seguido de dos puntos (:) que marca el inicio de una línea o bloque de código. Se utiliza comúnmente con instrucciones de salto (JMP, CALL) para alterar el flujo de ejecución.
+
+ ## Resultados: Lo que obtuviste o lograste
+
+ Entendí mejor el funcionamiento del lenguaje ensamblador y como crean números negativos con el compuesto a 2 del no binario usando compuertas lógicas, asi "engañan" al computador para que reste y sume números tanto positivos como negativos.
