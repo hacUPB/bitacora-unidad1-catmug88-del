@@ -68,9 +68,30 @@ El propósito principal de este programa es guardar el número 3 en el casillero
 
  para usarlos primero debe escribir una direccion y escribir el jump, este solo hace comparaciones con 0
 
- ## Números negativos en 3 bits
-  
- Entendí mejor el funcionamiento del lenguaje ensamblador y como crean números negativos con el compuesto a 2 del no binario usando compuertas lógicas, asi "engañan" al computador para que reste y sume números tanto positivos como negativos.
+ D; significa que esta comparando lo que este en D con 0
+
+ JGT = greater than
+
+ JGE = greater or equal
+
+ JLT = lower than
+
+ JLE = lower or equal
+
+ JEQ = equal to
+
+ JNE = not equal
+
+ JMP = just jump (no depende de nada)
+
+ ``Ejemplo en código:``
+ ````
+ @2
+ A=D
+ @20
+ D;JGT
+ ````
+Aquí le dije al programa que guardara el numero en d y que saltara al registro 20 en la rom si era mayor, cosa que si es.
 
  ## Investigación: variables y etiquetas en lenguaje ensamblador
 
@@ -79,9 +100,58 @@ El propósito principal de este programa es guardar el número 3 en el casillero
  ``Variables``
  Las variables se definen utilizando directivas de asignación (como DB para bytes, DW para palabras) en un segmento de datos, permitiendo reservar espacio y asignar valores iniciales
 
+**¿Cómo se declara una variable?**
+ Para crear una variable por ejemplo el siguiente programa mostrado en clase:
+ ````
+ @15
+ A=D
+ @var
+ M=D
+ ````
+ var es una variable, la cual se guarda en el casillero 16, asi viene de fabrica, a partir de este numero se almacenan las variables en la RAM.
+
+ **¿Cómo sumo una variable con otra?**
+ si yo creo otra variable de la misma manera digamos que asi
+  ````
+ @10
+ A=D
+ @i
+ M=D
+ ````
+lo que pasa aqui es que en el registro 16 se guardo la variable var y en 17 se guardo la variable i, entonces si quiero sumarlas debo hacer lo siguiente
+
+````
+@i
+D=M
+@var
+D=D-M
+````
+Aqui lo que pasó fue que apunte al registro 17 en la ram, guarde el contenido en d y luego apunte al otro registro, lo sume y lo guarde en d.
+
  ``Etiquetas``
- Una etiqueta es un nombre seguido de dos puntos (:) que marca el inicio de una línea o bloque de código. Se utiliza comúnmente con instrucciones de salto (JMP, CALL) para alterar el flujo de ejecución.
+ Una etiqueta es una palabra que sigue un @ para indicar un paso en la ROM, esta se utiliza mas que todo para hacer ciclos y bucles, estan usando registros reales y al momento de abrirlo en el emulador no se leen igual.
+
+1. @LOOP 
+2. @CONT
+
+``Ejemplo en código``
+````
+//i = 1000
+@1000
+D=A
+@i
+M=D
+//if i=0 goto CONT
+@i
+D=M
+@CONT
+D;JEQ
+//i=i-1
+@i
+M=M-1
+````
+
 
  ## Resultados: Lo que obtuviste o lograste
 
- Entendí mejor el funcionamiento del lenguaje ensamblador y como crean números negativos con el compuesto a 2 del no binario usando compuertas lógicas, asi "engañan" al computador para que reste y sume números tanto positivos como negativos.
+ Entendí mejor el funcionamiento del lenguaje ensamblador y como crean algoritmos basicos para crear procesos mas compuestos usando compuertas lógicas, asi "engañan" al computador para que haga las mismas operaciones lógicas que puede hacer un humano.
