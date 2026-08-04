@@ -1,11 +1,5 @@
 # Actividad 4: Control de flujo con saltos
 
-- **Objetivo:** ¿Qué se buscaba aprender o lograr?
-- **Proceso:** Pasos que seguiste para completar la actividad
-- **Resultados:** Lo que obtuviste o lograste
-- **Aprendizaje:** Conceptos nuevos que adquiriste
-- **Dificultades y soluciones:** Obstáculos que encontraste y cómo los superaste
-- **Conclusiones:** Reflexión sobre la importancia de lo aprendido
 
 Vamos a resolver juntos este problema:
 
@@ -31,3 +25,4 @@ Escribe un programa que compare el valor almacenado en la dirección de memoria 
 ``0;JMP`` Salta a END
 
 ![alt text](image-1.png)
+
