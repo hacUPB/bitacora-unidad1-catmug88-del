@@ -8,7 +8,7 @@ for(int i = 1; i <=100; i++){
 	sum+= i;
 	}
 ```
-Esta seria mi traduccion:
+### Esta seria mi traduccion:
 ```
 @sum
 M=0
@@ -39,7 +39,9 @@ M=M+1
 @END
 0;JMP
 ```
-Explicación del código:
+![alt text](image.png)
+
+### Explicación del código:
 El programa comienza creando dos variables: **sum**, que almacenará el resultado de la suma, e **i**, que actuará como contador del ciclo. Primero inicializa **sum** con el valor 0 e **i** con el valor 1.
 
 Luego entra en un ciclo identificado por la etiqueta **LOOP**. En cada repetición, el programa verifica si el valor de **i** es mayor que 100. Para hacerlo, resta 100 al valor de **i** y, si el resultado es positivo, significa que **i** ya superó el límite del ciclo, por lo que salta a la etiqueta **END** y finaliza.
