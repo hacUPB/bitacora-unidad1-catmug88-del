@@ -77,3 +77,56 @@ int* arrayHeap = crearArrayHeap(tamArray);
 
 ### Sección 4: Heap
 arrayHeap está en el stack y la memoria dinámica a la que apunta está en el heap
+
+# Actividad 4: Experimentos
+
+### Experimento 1: modificar el segmento de texto
+``` cpp
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main() {
+		// Variable local (stack)
+		int a = 10;
+		int b = 20;
+    /**********************************************************
+    EXPERIMENTO 1
+    ***********************************************************/
+    void* ptr = reinterpret_cast<void*>(&main);
+    cout << "Voy a modificar la memoria en la dirección: " << ptr << endl;
+    *reinterpret_cast<int*>(ptr) = 0;
+    /********************************************************/
+    return 0;
+    }
+```
+¿Qué ocurre? ¿Por qué?
+
+R/ En este código se intenta modificar la memoria donde está almacenada la función `main()`. Primero se obtiene su dirección y luego se intenta escribir un `0` en ella. Esto provoca un error porque el segmento de código normalmente solo permite leer y ejecutar las instrucciones, pero no modificarlas. Por eso el programa puede terminar con una violación de acceso o un error de memoria.
+
+### Experimento 2: modificar el segmento de datos (constante global):
+```cpp
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+// Constante global
+const char* const mensaje_ro = "Hola, memoria de solo lectura";
+
+int main() {
+		// Variable local (stack)
+		int a = 10;
+		int b = 20;
+
+    /**********************************************************
+    EXPERIMENTO 2
+    ***********************************************************/
+    char* ptr = (char*)&mensaje_ro;
+    cout << "Voy a modificar la memoria en la dirección: " << ptr << endl;
+    *ptr = 0;
+    /********************************************************/
+    return 0;
+    }
+```
+¿Qué ocurre? ¿Por qué?
+
+R/ En este código se intenta modificar la memoria de la constante global `mensaje_ro`. Primero se obtiene su dirección y luego se intenta cambiar su contenido a `0`. Esto puede provocar un error porque la constante y, especialmente, el texto al que apunta se encuentran en una zona de memoria que normalmente no permite escritura. Por eso el programa puede terminar con una violación de acceso o un error de memoria.

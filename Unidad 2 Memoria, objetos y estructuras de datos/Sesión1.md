@@ -1,10 +1,10 @@
 # Actividad 1
-```Evidencias```
+`Evidencias`
 ![alt text](image.png)
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 ![alt text](image-3.png)
-```Reflexiones```
+`Reflexiones`
 1. ¿Para qué sirven los breakpoints?
 
 R/ para detener la compilación del código en una línea en específico. De esta manera falicita el analisis para la verificacion del funcionamiento óptimo del código, ya que permite que sea analizado por partes.
@@ -30,12 +30,8 @@ Crea un proyecto de consola en Visual Studio. Implementa las siguientes funcione
 
 Esta función debe intentar intercambiar los valores de a y b pasándolos por valor. 
 
-<aside>
-🔖
 
 Nota: Se espera que el intercambio no afecte a las variables originales en `main()`.
-
-</aside>
 
 `swapPorReferencia(int &a, int &b)`
 
