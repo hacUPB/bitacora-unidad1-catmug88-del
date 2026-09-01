@@ -1,4 +1,4 @@
-## Actividad 1
+# Actividad 1
 ```Evidencias```
 ![alt text](image.png)
 ![alt text](image-1.png)
@@ -12,7 +12,7 @@ R/ para detener la compilación del código en una línea en específico. De est
 2. ¿Para qué se usa la ventana de depuración Autos?
 
 R/ Aquí muestran los valores que están siendo almacenados en el computador y como van cambiando deacuerdo al programa va ejecutandose.
-## Actividad 2: Paso por valor y paso por referencia
+# Actividad 2: Paso por valor y paso por referencia
 Analizaremos el concepto de paso de parámetros en C++ y cómo se comporta el paso por valor, por referencia y por puntero.
 
 ```Predicciones```
