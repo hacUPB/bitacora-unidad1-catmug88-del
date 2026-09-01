@@ -102,7 +102,7 @@ int main() {
 ```
 ¿Qué ocurre? ¿Por qué?
 
-R/ En este código se intenta modificar la memoria donde está almacenada la función `main()`. Primero se obtiene su dirección y luego se intenta escribir un `0` en ella. Esto provoca un error porque el segmento de código normalmente solo permite leer y ejecutar las instrucciones, pero no modificarlas. Por eso el programa puede terminar con una violación de acceso o un error de memoria.
+R/ En este código se intenta modificar la memoria donde está almacenada la función main() pero eso es imposible porque el segmento de código solo permite leer y ejecutar las instrucciones, pero no modificarlas. Por eso el programa puede terminar con una violación de acceso o un error de memoria.
 
 ### Experimento 2: modificar el segmento de datos (constante global):
 ```cpp
@@ -129,4 +129,62 @@ int main() {
 ```
 ¿Qué ocurre? ¿Por qué?
 
-R/ En este código se intenta modificar la memoria de la constante global `mensaje_ro`. Primero se obtiene su dirección y luego se intenta cambiar su contenido a `0`. Esto puede provocar un error porque la constante y, especialmente, el texto al que apunta se encuentran en una zona de memoria que normalmente no permite escritura. Por eso el programa puede terminar con una violación de acceso o un error de memoria.
+R/ En este código se intenta modificar la memoria de la constante global mensaje_ro. Primero se obtiene su dirección y luego se intenta cambiar su contenido a 0. Esto puede provocar un error porque la constante y, especialmente, el texto al que apunta se encuentran en una zona de memoria que normalmente no permite escritura. Por eso el programa puede terminar con una violación de acceso o un error de memoria.
+
+### Experimento 3: modificar el segmento de datos (variables globales):
+```cpp
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+// Variables globales
+int global_inicializada = 42;
+int global_no_inicializada;
+
+int main() {    // Variable local (stack)
+		int a = 10;
+		int b = 20;
+
+    /**********************************************************
+    EXPERIMENTO 3
+    ***********************************************************/
+    cout << "global_inicializada: " << global_inicializada << endl;
+    cout << "global_no_inicializada: " << global_no_inicializada << endl;
+
+    global_inicializada = 69;
+    global_no_inicializada = 666;
+    cout << "global_inicializada: " << global_inicializada << endl;
+    cout << "global_no_inicializada: " << global_no_inicializada << endl;
+    /********************************************************/
+    return 0;
+    }
+```
+¿Qué ocurre? ¿Por qué?
+
+R/ En este código hay dos variables globales, una de valor 42 y otra sin valor, primero se muestran sus valores y después se modifican a 69 y 666.
+
+ Esto funciona normalmente porque las variables globales se almacenan en una zona de la memoria que permite cambiar sus valores durante la ejecución del programa.
+
+### Experimento 4: modificar la variable local estática de una función por fuera de ella:
+```cpp
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+// Función de ejemplo que muestra la dirección de su variable local estática
+void funcionConStatic() {
+		static int var_estatica = 100;
+		cout << "Dirección de var_estatica (static): " << &var_estatica << endl;
+}
+
+int main() {    // Variable local (stack)
+		int a = 10;
+		int b = 20;
+    /**********************************************************
+    EXPERIMENTO 4
+    ***********************************************************/
+    var_estatica = 42;
+    cout << "var_estatica: " << var_estatica << endl;
+    /********************************************************/
+    return 0;
+    }
+```
+R/ Este programa no va a correr por que primero inicializa una variable static int, que aunque sea estatica y esto significa que siga existiendo durante todo el programa sigue teniendo una restriccion y es que ningun otro metodo puede acceder a ella incluyendo al main, y despues en el main intenta cambiarla pero como no existe en ese método pues va a salir un error.
